@@ -54,6 +54,8 @@ services:
       PAPERLESS_URL: https://paperless.giebelmann.dev
       PAPERLESS_TIME_ZONE: Europe/Berlin
       PAPERLESS_OCR_LANGUAGE: deu+eng
+      PAPERLESS_ADMIN_USER: ${PAPERLESS_ADMIN_USER}
+      PAPERLESS_ADMIN_PASSWORD: ${PAPERLESS_ADMIN_PASSWORD}
 
 volumes:
   pgdata:
