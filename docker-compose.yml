@@ -31,7 +31,7 @@ services:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8000/api/health/ || exit 1"]
+      test: ["CMD", "python3", "-c", "import sys, urllib.request; r = urllib.request.urlopen('http://127.0.0.1:8000/api/health/', timeout=5); sys.exit(0 if r.getcode() < 400 else 1)"]
       interval: 30s
       timeout: 10s
       retries: 5
